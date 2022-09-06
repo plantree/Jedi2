@@ -25,10 +25,12 @@ After two years' learning, it's time to start again. Redesign a website framewor
 
 ##### 1.3 FrontEnd
 
-- Vue + Vite
-- Element
+- Vue + Vite + VueRouter
+- axios
+- Tailwind CSS
 - Gittalk
 
 #### Reference
 
 1. [https://draveness.me/](https://draveness.me/)
+2. [vite + vue-router](https://stackblitz.com/edit/vue3-vite-router-starter?file=src%2FApp.vue,src%2Fmain.js)
