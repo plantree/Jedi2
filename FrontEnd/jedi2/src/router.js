@@ -10,6 +10,10 @@ export default createRouter({
         {
             path: '/about',
             component: () => import('@/views/About.vue'),
+        },
+        {
+            path: '/articles/:year/:month/:name',
+            component: () => import('@/views/Article.vue')
         }
     ]
 })

@@ -1,11 +1,23 @@
+<script setup>
+import algoliasearch from 'algoliasearch'
+</script>
 <template>
-    <header class="sticky top-0 z-40 border-b bg-gray-100 dark:bg-gray-700">
+    <header class="top-0 z-40 border-b bg-gray-100 dark:bg-gray-700">
         <nav class="flex items-center justify-between max-w-4xl p-4 mx-auto">
             <div class="flex">
                 <a href="/">
                     <img class="h-10 w-10 rounded-full" src="/src/assets/avatar.jpg" alt="" />
                 </a>
-                <form class="hidden mb-0 lg:flex lg:mx-4">
+                <div id="docsearch">
+                  <ais-instant-search
+                    index-name="instant_search"
+                    :search-client="searchClient"
+                >
+                    <!-- Widgets -->
+ 
+                </ais-instant-search>
+                </div>
+                <!-- <form class="hidden mb-0 lg:flex lg:mx-4">
                     <div class="relative">
                         <input
                             class="h-10 pl-4 text-sm placeholder-gray-300 border-gray-200 border-2 rounded-lg focus:z-10 focus:outline-none focus:border-gray-500 focus:ring-gray-500"
@@ -20,7 +32,7 @@
                             </svg>
                         </button>
                     </div>
-                </form>
+                </form> -->
             </div>
             <ul class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-white">
                 <li>
@@ -28,60 +40,9 @@
                 </li>
 
                 <li>
-                    <a class="group inline-flex items-center px-3 py-2 rounded-lg hover:text-gray-500/75 dark:hover:text-white/75"
-                        href="">
-                        Projects
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
-                            stroke="currentColor" class="ml-1 mt-1 w-4 h-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M12,16c-0.3,0-0.5-0.1-0.7-0.3l-6-6c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l5.3,5.3l5.3-5.3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-6,6C12.5,15.9,12.3,16,12,16z">
-                            </path>
-                        </svg>
-                        <div class="relative invisible group-hover:visible">
-                            <div class="absolute right-0 z-10 w-56 mt-4 origin-top-right bg-white border border-gray-100 rounded-md shadow-lg dark:bg-gray-700 dark:border-gray-700"
-                                role="menu">
-                                <div class="p-2">
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-700"
-                                        role="menuitem">
-                                        View on Storefront
-                                    </a>
-
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-700"
-                                        role="menuitem">
-                                        View Warehouse Info
-                                    </a>
-
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-700"
-                                        role="menuitem">
-                                        Duplicate Product
-                                    </a>
-
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-700"
-                                        role="menuitem">
-                                        Unpublish Product
-                                    </a>
-
-                                    <form method="POST" action="#">
-                                        <button type="submit"
-                                            class="flex items-center w-full gap-2 px-4 py-2 text-sm text-red-700 rounded-lg hover:bg-red-50"
-                                            role="menuitem">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                            </svg>
-                                            Delete Product
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    <a class="px-3 py-2 rounded-lg hover:text-gray-500/75 dark:hover:text-white/75" href="/blog"> Blog </a>
                 </li>
+                
 
                 <li>
                     <a class="inline-flex items-center px-3 py-2 rounded-lg hover:text-gray-500/75 dark:hover:text-white/75"
@@ -134,6 +95,14 @@
 
 <script>
 export default {
+    data() {
+      return {
+        searchClient: algoliasearch(
+          'latency',
+          '6be0576ff61c053d5f9a3225e2a90f76'
+        ),
+      };
+    },
     methods: {
         toggleDarkMode() {
             document.documentElement.classList.toggle('dark')

@@ -1,9 +1,13 @@
-import './index.css'
 import { createApp } from "vue"
 import App from './App.vue'
 import router from "./router"
 
-createApp(App).use(router).mount('#app')
+import 'github-markdown-css/github-markdown.css'
+import './index.css'
+import '@mdi/font/css/materialdesignicons.min.css'
+import InstantSearch from 'vue-instantsearch/vue3/es';
+
+createApp(App).use(router).use(InstantSearch).mount('#app')
 
 // Dark Mode
 // ref: https://tailwindcss.com/docs/dark-mode

@@ -9,16 +9,6 @@ import BaseFooter from '@/components/BaseFooter.vue'
 <template>
   <BaseHeader />
   <BaseContent />
-  <BaseFooter :year="getYear()" />
+  <BaseFooter />
 </template>
-
-<script>
-export default {
-  methods: {
-    getYear() {
-      return new Date().getFullYear();
-    }
-  }
-}
-</script>
 

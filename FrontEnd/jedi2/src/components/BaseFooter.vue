@@ -16,17 +16,9 @@
             </ul>
 
             <p class="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500 dark:text-white">
-                <a href="/" class="hover:text-gray-500/75 dark:hover:text-white/75">Plantree</a> © {{  year  }}. All
+                <a href="/" class="hover:text-gray-500/75 dark:hover:text-white/75">Plantree</a> © {{ new Date().getFullYear() }}. All
                 rights reserved.
             </p>
         </div>
     </footer>
 </template>
-
-<script>
-export default {
-    props: {
-        year: String
-    }
-}
-</script>
