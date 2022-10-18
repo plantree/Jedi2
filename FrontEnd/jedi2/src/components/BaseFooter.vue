@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-gray-100 dark:bg-gray-700">
+    <footer role="contentinfo" class="bg-gray-100 dark:bg-gray-700">
         <div class="max-w-5xl px-4 py-8 mx-auto sm:px-6 lg:px-8">
             <ul class="flex justify-center gap-6 mt-6 md:gap-8">
                 <li>
@@ -15,9 +15,8 @@
                 </li>
             </ul>
 
-            <p class="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500 dark:text-white">
-                <a href="/" class="hover:text-gray-500/75 dark:hover:text-white/75">Plantree</a> © {{ new Date().getFullYear() }}. All
-                rights reserved.
+            <p class="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500 dark:text-white">Copyright &copy; 2022-present
+                Plantree
             </p>
         </div>
     </footer>

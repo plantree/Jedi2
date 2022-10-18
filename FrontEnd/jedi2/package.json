@@ -12,10 +12,8 @@
     "@docsearch/js": "^3.2.1",
     "@giscus/vue": "^2.2.0",
     "@mdi/font": "^7.0.96",
-    "algoliasearch": "^4.14.2",
     "axios": "^0.27.2",
     "github-markdown-css": "^5.1.0",
-    "instantsearch.css": "^7.4.5",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^8.6.5",
     "markdown-it-code-copy": "^0.1.1",
@@ -25,7 +23,6 @@
     "markdown-it-table-of-contents": "^0.6.0",
     "markdown-it-task-lists": "^2.1.1",
     "vue": "^3.2.37",
-    "vue-instantsearch": "^4.6.0",
     "vue-router": "^4.1.5"
   },
   "devDependencies": {

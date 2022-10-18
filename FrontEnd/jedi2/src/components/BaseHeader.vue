@@ -1,38 +1,17 @@
 <script setup>
-import algoliasearch from 'algoliasearch'
+import docsearch from '@docsearch/js';
+import '@docsearch/css';
 </script>
+
 <template>
-    <header class="top-0 z-40 border-b bg-gray-100 dark:bg-gray-700">
-        <nav class="flex items-center justify-between max-w-4xl p-4 mx-auto">
+    <header role="banner" class="top-0 z-40 border-b bg-gray-100 dark:bg-gray-700">
+        <nav role="navigation" class="flex items-center justify-between max-w-4xl p-4 mx-auto">
             <div class="flex">
                 <a href="/">
                     <img class="h-10 w-10 rounded-full" src="/src/assets/avatar.jpg" alt="" />
                 </a>
                 <div id="docsearch">
-                  <ais-instant-search
-                    index-name="instant_search"
-                    :search-client="searchClient"
-                >
-                    <!-- Widgets -->
- 
-                </ais-instant-search>
                 </div>
-                <!-- <form class="hidden mb-0 lg:flex lg:mx-4">
-                    <div class="relative">
-                        <input
-                            class="h-10 pl-4 text-sm placeholder-gray-300 border-gray-200 border-2 rounded-lg focus:z-10 focus:outline-none focus:border-gray-500 focus:ring-gray-500"
-                            placeholder="Search..." type="text" />
-
-                        <button class="absolute inset-y-0 right-0 p-2 mr-px text-gray-600 rounded-r-lg" type="submit">
-                            <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path clip-rule="evenodd"
-                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                    fill-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </form> -->
             </div>
             <ul class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-white">
                 <li>
@@ -43,7 +22,6 @@ import algoliasearch from 'algoliasearch'
                     <a class="px-3 py-2 rounded-lg hover:text-gray-500/75 dark:hover:text-white/75" href="/blog"> Blog </a>
                 </li>
                 
-
                 <li>
                     <a class="inline-flex items-center px-3 py-2 rounded-lg hover:text-gray-500/75 dark:hover:text-white/75"
                         href="/about" target="_blank">
@@ -93,16 +71,14 @@ import algoliasearch from 'algoliasearch'
     </header>
 </template>
 
+<style>
+:root {
+    --docsearch-primary-color: rgb(59 130 246);
+}
+</style>
+
 <script>
 export default {
-    data() {
-      return {
-        searchClient: algoliasearch(
-          'latency',
-          '6be0576ff61c053d5f9a3225e2a90f76'
-        ),
-      };
-    },
     methods: {
         toggleDarkMode() {
             document.documentElement.classList.toggle('dark')
@@ -112,6 +88,14 @@ export default {
                 localStorage.theme = 'dark'
             }
         }
+    },
+    mounted() {
+        docsearch({
+            container: '#docsearch',
+            appId: 'R2IYF7ETH7',
+            apiKey: '599cec31baffa4868cae4e79f180729b',
+            indexName: 'docsearch',
+        });
     }
 }
 </script>

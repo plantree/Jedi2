@@ -20,8 +20,13 @@ import Giscus from '@giscus/vue'
 
 <template>
     <BaseHeader />
-    <div class="static container min-h-screen justify-between max-w-2xl p-4 mx-auto">
+    <main role="main" class="static container min-h-screen justify-between max-w-2xl p-4 mx-auto" >
         <h2 class="text-3xl font-semibold mb-4">{{ title }}</h2>
+        <div class="markdown-meta grid grid-cols-4 mb-4">
+            <span class="text-xl text-gray-400">阅读量: {{ readers }}</span>
+            <span class="text-xl text-gray-400">总字数: </span>
+            <span class="text-xl text-gray-400">预计阅读时间: </span>
+        </div>
         <div class="markdown-meta grid grid-cols-4 mb-4">
             <span class="text-xl text-gray-400 ">{{ date }}</span>
             <ul class="flex gap-2">
@@ -33,23 +38,23 @@ import Giscus from '@giscus/vue'
 
         <article v-html="content" class="markdown-body"></article>
 
-        <div class="license mt-4">
-            <h2 class="text-xl font-semibold mb-4">转载申请</h2>
+        <article class="license mt-4">
+            <h2 class="text-xl font-semibold mb-2">转载申请</h2>
             <a href="https://creativecommons.org/licenses/by/4.0/">
                 <img src="https://img.draveness.me/creative-commons.png">
             </a>
             <p class="mt-2">本作品采用知识共享署名 4.0 国际许可协议进行许可，转载时请注明原文链接，图片在使用时请保留全部内容，可适当缩放并在引用处附上图片所在的文章链接。</p>
-        </div>
+        </article>
 
-        <div class="comment mt-4">
+        <article class="comment mt-4">
             <Giscus
                 repo="plantree/press-comment"
                 repoId="R_kgDOIDNWUg"
                 category="General"
                 categoryId="DIC_kwDOIDNWUs4CRlY7"
             />
-        </div>
-    </div>
+        </article>
+    </main>
     
     <BaseFooter />
 </template>
@@ -86,7 +91,8 @@ export default {
             title: '',
             content: '',
             date: '',
-            tags: []
+            tags: [],
+            readers: Number
         }
     },
     mounted() {
@@ -97,6 +103,7 @@ export default {
                 this.content = this.md.render(response.data.content)
                 this.date = response.data.date 
                 this.tags = response.data.tags
+                this.readers = response.data.readers
             })
             .catch(error => {
                 console.log(error)
