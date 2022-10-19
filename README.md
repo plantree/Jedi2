@@ -28,9 +28,15 @@ After two years' learning, it's time to start again. Redesign a website framewor
 - Vue + Vite + VueRouter
 - axios
 - Tailwind CSS
-- Gittalk
+- Giscus
+- Algolia
 
 #### Reference
 
 1. [https://draveness.me/](https://draveness.me/)
 2. [vite + vue-router](https://stackblitz.com/edit/vue3-vite-router-starter?file=src%2FApp.vue,src%2Fmain.js)
+3. [vue + markdown](https://www.cnblogs.com/youxam/p/vue-markdown-render.html)
+4. [github css](https://github.com/sindresorhus/github-markdown-css)
+5. [markdown-it](https://github.com/markdown-it/markdown-it)
+6. [markdown-it-plugin](https://www.npmjs.com/search?q=keywords:markdown-it-plugin)
+7. [algolia/docsearch](https://github.com/algolia/docsearch)
