@@ -49,7 +49,6 @@ export default {
     }
   },
   async asyncData ({ $content, store, app, params, error }) {
-    console.log(params.pathMatch)
     const path = `/${app.i18n.locale}/${params.pathMatch || 'index'}`
     const [document] = await $content({ deep: true }).where({ path }).fetch()
     if (!document) {
