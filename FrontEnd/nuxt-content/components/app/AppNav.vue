@@ -8,7 +8,8 @@
           <AppSearch />
         </li>
         <li v-for="(contents, category, index) in categories" :key="year" class="u-border-gray-100 hover:u-border-gray-300">
-          <button class="u-text-gray-900 group flex w-full cursor-pointer items-center justify-between py-1.5 text-sm
+          <AppNavList :category="category" :contents="contents" />
+          <!-- <button class="u-text-gray-900 group flex w-full cursor-pointer items-center justify-between py-1.5 text-sm
           font-semibold">
           <span>{{ category }}</span>
           <span class="flex"><svg xmlns="http://www.w3.org/2000/svg"
@@ -43,8 +44,8 @@
                 </li>
               </ul>
             </li>
-          </ul>
-          
+          </ul> -->
+
           <p v-if="category" class="mb-2 text-gray-500 uppercase tracking-wider font-bold text-sm lg:text-xs">{{
               category
           }}</p>
@@ -93,45 +94,44 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import AppNavList from './AppNavList.vue'
 
 export default {
-  computed: {
-    ...mapGetters([
-      'settings',
-      'githubUrls'
-    ]),
-    menu: {
-      get() {
-        return this.$store.state.menu.open
-      },
-      set(val) {
-        this.$store.commit('menu/toggle', val)
-      }
+    computed: {
+        ...mapGetters([
+            "settings",
+            "githubUrls"
+        ]),
+        menu: {
+            get() {
+                return this.$store.state.menu.open;
+            },
+            set(val) {
+                this.$store.commit("menu/toggle", val);
+            }
+        },
+        categories() {
+            return this.$store.state.categories[this.$i18n.locale];
+        }
     },
-    categories() {
-      console.log()
-      return this.$store.state.categories[this.$i18n.locale]
-    }
-  },
-  methods: {
-    isCategoryActive(documents) {
-      return documents.some(document => document.to === this.$route.fullPath)
+    methods: {
+        isCategoryActive(documents) {
+            return documents.some(document => document.to === this.$route.fullPath);
+        },
+        isDocumentNew(document) {
+            if (process.server) {
+                return;
+            }
+            if (!document.version || document.version <= 0) {
+                return;
+            }
+            const version = localStorage.getItem(`document-${document.slug}-version`);
+            if (document.version > Number(version)) {
+                return true;
+            }
+            return false;
+        }
     },
-    isDocumentNew(document) {
-      if (process.server) {
-        return
-      }
-      if (!document.version || document.version <= 0) {
-        return
-      }
-
-      const version = localStorage.getItem(`document-${document.slug}-version`)
-      if (document.version > Number(version)) {
-        return true
-      }
-
-      return false
-    }
-  }
+    components: { AppNavList }
 }
 </script>
