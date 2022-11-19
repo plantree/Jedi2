@@ -7,7 +7,7 @@
             <h1>{{ year}}</h1>
             <ul>
                 <li v-for="article in contents[year]" class="flex flex-row text-2xl">
-                    <NuxtLink :to="article.to" class="w-1/2 font-bold text-xl">{{ article.title }}</NuxtLink>
+                    <NuxtLink :to="article.to" class="w-1/2 font-bold text-xl dark:white">{{ article.title }}</NuxtLink>
                     <span class="w-1/2 text-right font-mono text-xl text-gray-600">{{ article.date }}</span>
                 </li>
             </ul>
@@ -44,5 +44,11 @@ export default {
 }
 .app-list ul > li a:hover {
     text-decoration-color: black;
+}
+.dark-mode .app-list ul li a {
+    color: white;
+}
+.dark-mode .app-list ul > li a:hover {
+    text-decoration-color: gray;
 }
 </style>

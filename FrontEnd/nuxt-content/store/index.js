@@ -84,7 +84,6 @@ export const actions = {
     for (let item of Object.keys(categories)) {
       categories[item] = groupBy(categories[item], 'year')
     }
-    console.log(categories)
 
     commit('SET_CATEGORIES', categories)
   },
