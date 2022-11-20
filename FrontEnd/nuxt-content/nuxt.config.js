@@ -89,6 +89,13 @@ const defaultConfig = docsOptions => ({
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
+    script: [
+      {
+        type: "module",
+        src: "https://cdn.skypack.dev/giscus",
+        async: true
+      }
+    ],
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -118,7 +125,7 @@ const defaultConfig = docsOptions => ({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     '@nuxtjs/pwa',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
   ],
   modules: [
     'nuxt-i18n',

@@ -24,24 +24,23 @@
         </div>
 
         <NuxtContent :document="document" />
-        <AppPageBottom :document="document" />
-        <AppPrevNext :prev="prev" :next="next" />
 
-        <article class="license mt-4">
-          <h2 class="text-xl font-semibold mb-2">转载申请</h2>
+        <article class="license mt-6">
+          <h2 class="text-xl font-semibold">转载申请</h2>
           <a href="https://creativecommons.org/licenses/by/4.0/">
             <img src="https://img.draveness.me/creative-commons.png">
           </a>
-          <p class="mt-2">本作品采用知识共享署名 4.0 国际许可协议进行许可，转载时请注明原文链接，图片在使用时请保留全部内容，可适当缩放并在引用处附上图片所在的文章链接。</p>
+          <p>本作品采用知识共享署名 4.0 国际许可协议进行许可，转载时请注明原文链接，图片在使用时请保留全部内容，可适当缩放并在引用处附上图片所在的文章链接。</p>
         </article>
 
-        <!-- <article class="comment mt-4">
-          <Giscus repo="plantree/press-comment" repoId="R_kgDOIDNWUg" category="General"
+        <article class="comment my-4">
+          <giscus-widget repo="plantree/press-comment" repoId="R_kgDOIDNWUg" category="General"
             categoryId="DIC_kwDOIDNWUs4CRlY7" />
-        </article> -->
+        </article>
+
+        <AppPageBottom :document="document" />
+        <AppPrevNext :prev="prev" :next="next" />
       </article>
-
-
     </div>
 
     <AppToc v-if="!document.fullscreen" :toc="document.toc" />
@@ -140,5 +139,14 @@ export default {
 
 ul.article-category>li::before {
   content: none;
+}
+
+article.license img {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+article.license p {
+  margin: 0 auto;
 }
 </style>

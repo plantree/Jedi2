@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="prev || next"
-    class="grid grid-cols-2 gap-2 lg:px-8 pt-4 border-t dark:border-gray-800"
+    class="grid grid-cols-2 gap-2 pt-4 border-t dark:border-gray-800"
     :class="{
       'lg:border-t-0': settings.layout === 'single'
     }"
