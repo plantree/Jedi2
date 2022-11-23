@@ -7,6 +7,10 @@ import gracefulFs from 'graceful-fs'
 
 import tailwindConfig from './tailwind.config'
 
+import sitemapRoutes from './sitemap.routes'
+import create from './rss.routes'
+console.log(create)
+
 const fs = gracefulFs.promises
 
 function themeModule() {
@@ -51,6 +55,9 @@ function themeModule() {
 
     document.to = `${_dir}/${_slug}`
     document.category = _category
+    if (document.extension === '.md') {
+      document.bodyPlainText = document.text
+    }
   })
   // Extend `/` route
   hook('build:extendRoutes', (routes) => {
@@ -94,6 +101,12 @@ const defaultConfig = docsOptions => ({
         type: "module",
         src: "https://cdn.skypack.dev/giscus",
         async: true
+      },
+      // busuanzi counter
+      {
+        src: "https://cdnjs.cloudflare.com/ajax/libs/busuanzi/2.3.0/bsz.pure.mini.min.js",
+        async: true,
+        crossorigin: "anonymous"
       }
     ],
     meta: [
@@ -129,7 +142,9 @@ const defaultConfig = docsOptions => ({
   ],
   modules: [
     'nuxt-i18n',
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/feed'
   ],
   components: [
     {
@@ -211,7 +226,22 @@ const defaultConfig = docsOptions => ({
       'DM+Mono': true
     }
   },
-  tailwindcss: {}
+  tailwindcss: {},
+  sitemap: {
+    hostname: 'https://plantree.me',
+    routes() {
+      return sitemapRoutes()
+    }
+  },
+  feed: [
+    {
+      path: '/feed.xml',
+      create: create,
+      cacheTime: 1000 * 60 * 24,
+      type: 'rss2',
+      data: [ '', 'xml' ]
+    }
+  ]
 })
 
 export default (userConfig) => {

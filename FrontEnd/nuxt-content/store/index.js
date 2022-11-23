@@ -75,7 +75,10 @@ export const actions = {
     if (process.dev === false && state.categories[this.$i18n.locale]) {
       return
     }
-    const docs = await this.$content(this.$i18n.locale, { deep: true }).only(['title', 'menuTitle', 'category', 'slug', 'version', 'to', 'createdAt']).sortBy('createdAt', 'asc').fetch()
+    const contents = await this.$content(this.$i18n.locale, { deep: true }).only(['title', 'menuTitle', 'category', 'slug', 'version', 'to', 'createdAt']).sortBy('createdAt', 'asc').fetch()
+    // filter 
+    const docs = contents.filter((item) => (item.title.toLowerCase() !== 'about'))
+    
     for (let item of docs) {
       item.to = '/blog' + item.to
       item.year = (new Date(item.createdAt)).getFullYear()
@@ -88,6 +91,7 @@ export const actions = {
     commit('SET_CATEGORIES', categories)
   },
   async fetchReleases ({ commit, state, getters }) {
+    return
     if (!state.settings.github) {
       return
     }

@@ -27,7 +27,7 @@
               }" />
               <NuxtLink class="font-bold inline-flex items-center px-3 -mt-1 rounded-lg hover:text-primary-500" :class="{
                   'hidden lg:inline-flex': settings.layout !== 'single'
-              }"  :to="localePath('/blog/about')">
+              }"  :to="localePath('/about')">
                 About
                 <IconExternalLink class="w-4 h-4 ml-1" />
               </NuxtLink>

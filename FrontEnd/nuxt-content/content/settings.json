@@ -5,5 +5,7 @@
     "light": "/avatar.jpg",
     "dark": "/avatar.jpg"
   },
-  "github": "plantree/Jedi2/tree/main/FrontEnd/nuxt/content"
+  "github": "plantree/Jedi2/",
+  "defaultBranch": "main",
+  "defaultDir": "FrontEnd/nuxt-content/"
 }

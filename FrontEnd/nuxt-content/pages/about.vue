@@ -19,7 +19,8 @@ import AppCopyButton from '~/components/app/AppCopyButton'
 export default {
   layout: 'index',
   async asyncData ({ $content, store, app, params, error }) {
-    const path = `/${app.i18n.locale}/${params.pathMatch || 'index'}`
+    const path = `/${app.i18n.locale}/about`
+    console.log(path)
     const [document] = await $content({ deep: true }).where({ path }).fetch()
     if (!document) {
       return error({ statusCode: 404, message: 'Page not found' })

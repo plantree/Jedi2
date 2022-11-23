@@ -16,7 +16,7 @@
           <div class="flex items-center space-x-4">
             <AppLangSwitcher />
             <AppColorSwitcher />
-            <NuxtLink :to="localePath('/blog/about')"
+            <NuxtLink :to="localePath('/about')"
               class="font-bold inline-flex items-center rounded-lg hover:text-primary-500">
               About
               <IconExternalLink class="w-4 h-4 ml-1" />

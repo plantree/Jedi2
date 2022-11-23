@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html {{ HTML_ATTRS }}>
+
+<head {{ HEAD_ATTRS }}>
+    {{ HEAD }}
+    <!-- Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-121813370-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-121813370-1');
+    </script>
+    <!-- Baidu Analytics -->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?c3e631ee19837171175d34b83d7a9b5d";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- Baidu SEO -->
+    <script src="https://zz.bdstatic.com/linksubmit/push.js"></script>
+</head>
+
+<body {{ BODY_ATTRS }}>
+    {{ APP }}
+</body>
+
+</html>

@@ -14,13 +14,17 @@
         <div v-if="document.subtitle" class="-mt-4">
           <p class="text-gray-600 dark:text-gray-400">{{ document.subtitle }}</p>
         </div>
-        <div class="flex article-meta">
-          <span class="text-gray-600 font-semibold font-mono">{{ document.year }}-{{ document.date }}</span>
+        <div class="flex article-meta mb-8 text-gray-600">
+          <span class="font-semibold font-mono">{{ document.date }}</span>
           <ul v-if="document.features.length > 0" class="flex article-category">
-            <li v-for="item of document.features" class="text-gray-600 border-2 rounded-md">
+            <li v-for="item of document.features" class="border-2 rounded-md">
               {{ item }}
             </li>
           </ul>
+          <span id="busuanzi_container_page_pv flex">
+            本文总阅读量
+            <span id="busuanzi_value_page_pv" class="font-mono underline"></span>次
+          </span>
         </div>
 
         <NuxtContent :document="document" />
@@ -35,7 +39,8 @@
 
         <article class="comment my-4">
           <giscus-widget repo="plantree/press-comment" repoId="R_kgDOIDNWUg" category="General"
-            categoryId="DIC_kwDOIDNWUs4CRlY7" />
+            categoryId="DIC_kwDOIDNWUs4CRlY7">
+          </giscus-widget>
         </article>
 
         <AppPageBottom :document="document" />
@@ -66,23 +71,36 @@ export default {
   async asyncData({ $content, store, app, params, error }) {
     const path = `/${app.i18n.locale}/${params.pathMatch || 'index'}`
     const [document] = await $content({ deep: true }).where({ path }).fetch()
+    if (document !== undefined) {
+      let date = new Date(document.createdAt)
+      document.year = date.getFullYear()
+      document.date = document.year + '-' +         
+        ('0' + (date.getMonth() + 1)).slice(-2) + '-' + 
+        ('0' + (date.getDate())).slice(-2)
+    }
+
+
     if (!document) {
       return error({ statusCode: 404, message: 'Page not found' })
     }
 
-    const [prev, next] = await $content(app.i18n.locale, { deep: true })
+    let [prev, next] = await $content(app.i18n.locale, { deep: true })
       .only(['title', 'path', 'to'])
       .sortBy('position', 'asc')
       .surround(document.path, { before: 1, after: 1 })
       .fetch()
     if (prev !== null) {
-      prev.to = '/blog' + prev.to
+      prev.to = '/blog' + prev.to    
+      if (prev.title === 'About') {
+        prev = null
+      }
     }
     if (next !== null) {
-      next.to = '/blog' + next.to
+      next.to = '/blog' + next.to    
+      if (next.title === 'About') {
+        next = null
+      }
     }
-    console.log(document)
-
     return {
       document,
       prev,
