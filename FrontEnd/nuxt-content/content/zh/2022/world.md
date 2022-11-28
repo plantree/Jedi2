@@ -18,7 +18,7 @@ features:
 
 <alert type="success">
 
-这是你的世界!
+这 是 你 的 世界!
 
 </alert>
 

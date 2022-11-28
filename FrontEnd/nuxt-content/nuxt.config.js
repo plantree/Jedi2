@@ -9,7 +9,6 @@ import tailwindConfig from './tailwind.config'
 
 import sitemapRoutes from './sitemap.routes'
 import create from './rss.routes'
-console.log(create)
 
 const fs = gracefulFs.promises
 
