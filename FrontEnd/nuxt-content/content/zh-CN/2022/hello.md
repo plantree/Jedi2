@@ -1,14 +1,13 @@
 ---
-title: world
+title: hello
 year: 2022
-date: 11-12
+date: 11-11
 description: ''
-position: 3
-category: 'Python'
+position: 2
+category: 'C++'
 features:
   - Feature 1
   - Feature 2
-  - Feature 3
 ---
 
 <img src="/preview.png" class="light-img" width="1280" height="640" alt=""/>
@@ -18,7 +17,7 @@ features:
 
 <alert type="success">
 
-这 是 你 的 世界!
+这是你的世界!
 
 </alert>
 

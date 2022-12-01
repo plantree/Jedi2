@@ -21,9 +21,9 @@
               {{ item }}
             </li>
           </ul>
-          <span id="busuanzi_container_page_pv flex">
-            本文总阅读量
-            <span id="busuanzi_value_page_pv" class="font-mono underline"></span>次
+          <span>
+            <img class="inline-block align-middle" :src="`https://visitor-badge.glitch.me/badge?page_id=${domain}${this.$route.path}&left_text=views`"
+             alt="visitor badge"/>
           </span>
         </div>
 
@@ -39,7 +39,7 @@
 
         <article class="comment my-4">
           <giscus-widget repo="plantree/press-comment" repoId="R_kgDOIDNWUg" category="General"
-            categoryId="DIC_kwDOIDNWUs4CRlY7">
+            categoryId="DIC_kwDOIDNWUs4CRlY7" loading="lazy" :theme="$colorMode.value" :lang="this.$i18n.locale">
           </giscus-widget>
         </article>
 
@@ -123,7 +123,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'settings'
+      'settings',
+      'domain'
     ])
   },
   mounted() {
@@ -149,14 +150,18 @@ export default {
   margin: 0 auto;
 }
 
-.article-meta ul.article-category>li {
+.article-meta ul.article-category > li {
   margin: 0 0.5em;
   padding-left: 0.2em;
   padding-right: 0.2em;
 }
 
-ul.article-category>li::before {
+ul.article-category > li::before {
   content: none;
+}
+
+div.article-meta img {
+  margin: 0 auto;
 }
 
 article.license img {

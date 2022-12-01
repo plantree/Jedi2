@@ -11,7 +11,8 @@ export const state = () => ({
     defaultDir: 'docs',
     defaultBranch: '',
     filled: false
-  }
+  },
+  domain: ''
 })
 
 export const getters = {
@@ -46,7 +47,8 @@ export const getters = {
   },
   lastRelease (state) {
     return state.releases[0]
-  }
+  },
+  domain: (state) => state.domain
 }
 
 export const mutations = {
@@ -66,6 +68,9 @@ export const mutations = {
       // eslint-disable-next-line no-console
       console.warn('Please provide the `url` property in `content/setting.json`')
     }
+  },
+  SET_DOMAIN(state, domain) {
+    state.domain = domain
   }
 }
 
@@ -160,5 +165,8 @@ export const actions = {
       // eslint-disable-next-line no-console
       console.warn('You can add a `settings.json` file inside the `content/` folder to customize this theme.')
     }
+  },
+  nuxtServerInit(store, context) {
+    store.commit('SET_DOMAIN', context.req.headers.host);
   }
 }

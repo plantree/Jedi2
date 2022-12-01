@@ -60,12 +60,14 @@ export default {
             {
               container: '#docsearch',
               searchParameters: Object.assign(
-                {},
-                lang && {
-                  facetFilters: [`${userOptions.langAttribute || 'language'}:${lang.iso}`].concat(
-                    userOptions.facetFilters || []
-                  )
-                }
+                {
+
+                },
+                // lang && {
+                //   facetFilters: [`${userOptions.langAttribute || 'language'}:${lang.iso}`].concat(
+                //     userOptions.facetFilters || []
+                //   )
+                // }
               ),
               navigator: {
                 navigate: ({ suggestionUrl }) => {

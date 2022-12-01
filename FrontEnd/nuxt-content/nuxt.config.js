@@ -180,13 +180,13 @@ const defaultConfig = docsOptions => ({
         name: 'English'
       },
       {
-        code: 'zh',
+        code: 'zh-CN',
         iso: 'zh-CN',
         file: 'zh-CN.js',
         name: '中文'
       }
     ],
-    defaultLocale: 'zh',
+    defaultLocale: 'zh-CN',
     // browser language detection
     detectBrowserLanguage: {
       useCookie: true,
@@ -240,7 +240,15 @@ const defaultConfig = docsOptions => ({
       type: 'rss2',
       data: [ '', 'xml' ]
     }
-  ]
+  ],
+  algolia: {
+    apiKey: '7BR8AJTG43',
+    applicationId: '5c9d33a5daa33272d65b593f7ca77eed',
+    // DocSearch key is used to configure DocSearch extension.
+    docSearch: {
+      indexName: 'Jedi2',
+    }
+  }  
 })
 
 export default (userConfig) => {

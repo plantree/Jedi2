@@ -23,12 +23,8 @@
               </NuxtLink>
         </li>
       </ul>
-      <p class="flex flex-row mt-6 text-gray-500 dark:text-white">
-         <span id="busuanzi_container_site_pv" class="inline-block w-1/2 text-center">本站总访问量<span id="busuanzi_value_site_pv" class="font-mono underline"></span>次</span>
-         <span id="busuanzi_container_site_uv" class="inline-block w-1/2 text-center">本站总访客数<span id="busuanzi_value_site_uv" class="font-mono underline"></span>人</span>
-      </p>
-      <p class="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500 dark:text-white">Copyright &copy; {{ new Date().getFullYear() }}-present
-          Plantree | 苏ICP备16065564号-2
+      <p class="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500 dark:text-white">Copyright &copy; {{ new Date().getFullYear() }}
+          Plantree | <a href="https://beian.miit.gov.cn" rel="noopener external nofollow noreferrer" target="_blank" title="beian">苏ICP备16065564号-2</a>
       </p>
   </div>
   </footer>
