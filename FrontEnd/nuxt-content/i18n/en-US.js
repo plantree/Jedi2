@@ -8,5 +8,9 @@ export default {
   article: {
     github: 'Edit this page on GitHub',
     updatedAt: 'Updated at'
+  },
+  error: {
+    goHome: 'Go Home',
+    goBack: 'Go Back'
   }
 }

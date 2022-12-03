@@ -77,10 +77,10 @@ export default {
         this.results = []
         return
       }
+      
       this.searching = true
-      this.results = await this.$content(this.$i18n.locale, { deep: true }).sortBy('position', 'asc').only(['title', 'slug', 'category', 'to', 'features', 'createdAt'])
+      this.results = await this.$content(this.$i18n.locale, { deep: true }).sortBy('position', 'asc').only(['title', 'slug', 'category', 'to', 'toc', 'features', 'createdAt'])
         .where({ title: { $ne: 'About'}}).limit(12).search(q).fetch()
-      console.log(this.results)
       this.searching = false
     }
   },
@@ -119,6 +119,7 @@ export default {
         return
       }
       const result = this.focusIndex === -1 ? this.results[0] : this.results[this.focusIndex]
+      console.log(('/blog' + this.localePath(result.to)))
       this.$router.push(( '/blog' + this.localePath(result.to)))
       // Unfocus the input and reset the query.
       this.$refs.search.blur()

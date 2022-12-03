@@ -130,7 +130,8 @@ const defaultConfig = docsOptions => ({
     '@/plugins/init',
     '@/plugins/i18n.client',
     '@/plugins/vue-scrollactive',
-    '@/plugins/menu.client'
+    '@/plugins/menu.client',
+    // { src: "~/assets/script/echarts.js", mode: "client" }
   ],
   buildModules: [
     themeModule,
@@ -167,7 +168,8 @@ const defaultConfig = docsOptions => ({
     markdown: {
       prism: {
         theme: 'prism-themes/themes/prism-material-oceanic.css'
-      }
+      },
+      tocDepth: 4
     },
     liveEdit: false
   },

@@ -13,6 +13,18 @@
               </a>
           </li>
           <li>
+              <a href="https://www.linkedin.com/in/plantree/" rel="noopener noreferrer" target="_blank"
+                  class="text-gray-700 transition hover:text-gray-400/75 dark:text-white dark:hover:text-white/75">
+                  <IconLinkedIn />
+              </a>
+          </li>
+          <li>
+              <a href="https://www.zhihu.com/people/plantree.me" rel="noopener noreferrer" target="_blank"
+                  class="text-gray-700 transition hover:text-gray-400/75 dark:text-white dark:hover:text-white/75">
+                  <IconZhihu />
+              </a>
+          </li>
+          <li>
             <NuxtLink to="/feed.xml" rel="noopener noreferrer" target="_blank"
                 class="text-gray-700 transition hover:text-gray-400/75 dark:text-white dark:hover:text-white/75">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -31,11 +43,14 @@
 </template>
 
 <script>
+import IconZhihu from '../global/icons/IconZhihu.vue';
+
 export default {
-  computed: {
-    availableLocales () {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
-    }
-  }
+    computed: {
+        availableLocales() {
+            return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+        }
+    },
+    components: { IconZhihu }
 }
 </script>

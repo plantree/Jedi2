@@ -4,7 +4,7 @@
   }">
     <div class="w-full min-h-screen py-4 lg:pt-8 lg:pb-4 dark:border-gray-800">
       <article class="prose dark:prose-dark max-w-none lg:px-48">
-        <AppList :contents="contents"/>
+        <AppList :contents="contents" />
       </article>
     </div>
   </div>
@@ -26,9 +26,9 @@ export default {
     }
   },
   async asyncData({ $content, store, app, params, error }) {
-    const articles = await $content(app.i18n.locale, {deep: true})
+    const articles = await $content(app.i18n.locale, { deep: true })
       .where({ extension: '.md' })
-      .where({ title: {$ne: 'About'}})
+      .where({ title: { $ne: 'About' } })
       .only(['title', 'to', 'createdAt'])
       .sortBy('createdAt', 'desc')
       .fetch()
@@ -40,8 +40,8 @@ export default {
     for (let item of articles) {
       let date = new Date(item.createdAt)
       item.year = date.getFullYear()
-      item.date = item.year + '-' + 
-        ('0' + (date.getMonth() + 1)).slice(-2) + '-' + 
+      item.date = item.year + '-' +
+        ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
         ('0' + (date.getDate())).slice(-2)
       item.to = '/blog' + item.to
       if (item.title === 'About' || item.title === 'Introduction') {

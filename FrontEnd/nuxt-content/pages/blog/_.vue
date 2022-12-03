@@ -15,8 +15,8 @@
           <p class="text-gray-600 dark:text-gray-400">{{ document.subtitle }}</p>
         </div>
         <div class="flex article-meta mb-8 text-gray-600">
-          <span class="font-semibold font-mono">{{ document.date }}</span>
-          <ul v-if="document.features.length > 0" class="flex article-category">
+          <span class="font-semibold font-mono flex-initial">{{ document.date }}</span>
+          <ul v-if="document.features.length > 0" class="flex article-category ">
             <li v-for="item of document.features" class="border-2 rounded-md">
               {{ item }}
             </li>
@@ -78,7 +78,6 @@ export default {
         ('0' + (date.getMonth() + 1)).slice(-2) + '-' + 
         ('0' + (date.getDate())).slice(-2)
     }
-
 
     if (!document) {
       return error({ statusCode: 404, message: 'Page not found' })
@@ -147,7 +146,7 @@ export default {
 
 <style>
 .article-meta ul {
-  margin: 0 auto;
+  margin: 0 1em;
 }
 
 .article-meta ul.article-category > li {

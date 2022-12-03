@@ -8,5 +8,9 @@ export default {
   article: {
     github: '在 GitHub 上编辑本页面',
     updatedAt: '更新时间：'
+  },
+  error: {
+    goHome: '返回主页',
+    goBack: '返回上一页'
   }
 }
