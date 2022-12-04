@@ -30,11 +30,18 @@
         <NuxtContent :document="document" />
 
         <article class="license mt-6">
-          <h2 class="text-xl font-semibold">转载申请</h2>
+          <ul class="px-4 py-2 border-l-4">
+            <li><strong>本文作者: </strong>Plantree</li>
+            <li><strong>本文链接: </strong><a :href="`https://${domain}${this.$route.path}`">https://{{domain}}{{this.$route.path}}</a></li>
+            <li><strong>版权声明: </strong>本作品采用
+              <a href="http://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 国际许可协议</a>
+            进行许可，转载时请注明原文链接</li>
+          </ul>
+          <!-- <h2 class="text-xl font-semibold">转载申请</h2>
           <a href="https://creativecommons.org/licenses/by/4.0/">
             <img src="https://img.draveness.me/creative-commons.png">
           </a>
-          <p>本作品采用知识共享署名 4.0 国际许可协议进行许可，转载时请注明原文链接，图片在使用时请保留全部内容，可适当缩放并在引用处附上图片所在的文章链接。</p>
+          <p>本作品采用知识共享署名 4.0 国际许可协议进行许可，转载时请注明原文链接，图片在使用时请保留全部内容，可适当缩放并在引用处附上图片所在的文章链接。</p> -->
         </article>
 
         <article class="comment my-4">
@@ -170,5 +177,23 @@ article.license img {
 
 article.license p {
   margin: 0 auto;
+}
+
+article.license ul {
+  background-color: #f6f8fa;
+  border-color: #68d391;
+}
+
+article.license ul li {
+  padding-left: 0;
+  margin: 0.2em 0;
+}
+
+article.license ul li::before {
+  content: none;
+}
+
+article.license ul li strong {
+  margin-right: 0.5em;
 }
 </style>

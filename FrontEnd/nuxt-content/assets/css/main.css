@@ -14,6 +14,10 @@
   display: block;
 }
 
+main > div {
+  min-height: 78vh;
+}
+
 .nuxt-content {
   @apply break-words;
 

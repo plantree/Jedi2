@@ -2,7 +2,7 @@
   <div class="flex flex-wrap-reverse" :class="{
     'lg:-mx-8': settings.layout === 'single'
   }">
-    <div class="w-full min-h-screen py-4 lg:pt-8 lg:pb-4 dark:border-gray-800">
+    <div class="w-full py-4 lg:pt-8 lg:pb-4 dark:border-gray-800">
       <article class="prose dark:prose-dark max-w-none lg:px-48">
         <AppList :contents="contents" />
       </article>
