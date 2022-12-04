@@ -18,7 +18,7 @@ async function create(feed, args) {
     link: `${hostname}/feed.${ext}`
   }
   const { $content } = require('@nuxt/content')
-  const contents = await $content({ deep: true }).only(["title", "description", "bodyPlainText", "to"]).fetch();
+  const contents = await $content({ deep: true }).only(["title", "description", "bodyPlainText", "to", "extension"]).fetch();
   const posts = contents.filter((file) => (file.extension === ".md" && file.title !== 'About'));
   for (const post of posts) {
     const feedItem = constructFeedItem(post, hostname);
