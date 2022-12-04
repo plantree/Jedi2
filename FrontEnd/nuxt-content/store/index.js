@@ -168,6 +168,6 @@ export const actions = {
   },
   nuxtServerInit({ commit }, { req }) {
     // commit('SET_DOMAIN', req.headers.host);
-    commit('SET_DOMAIN', 'test')
+    commit('SET_DOMAIN', 'plantree.me')
   }
 }
