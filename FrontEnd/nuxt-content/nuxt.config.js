@@ -139,6 +139,7 @@ const defaultConfig = docsOptions => ({
     '@nuxtjs/color-mode',
     '@nuxtjs/pwa',
     '@nuxtjs/google-fonts',
+    '@nuxtjs/web-vitals'
   ],
   modules: [
     'nuxt-i18n',
@@ -243,14 +244,9 @@ const defaultConfig = docsOptions => ({
       data: [ '', 'xml' ]
     }
   ],
-  algolia: {
-    apiKey: '7BR8AJTG43',
-    applicationId: '5c9d33a5daa33272d65b593f7ca77eed',
-    // DocSearch key is used to configure DocSearch extension.
-    docSearch: {
-      indexName: 'Jedi2',
-    }
-  }  
+  googleAnalytics: {
+    id: 'UA-121813370-1'
+  }
 })
 
 export default (userConfig) => {

@@ -166,7 +166,8 @@ export const actions = {
       console.warn('You can add a `settings.json` file inside the `content/` folder to customize this theme.')
     }
   },
-  nuxtServerInit(store, context) {
-    store.commit('SET_DOMAIN', context.req.headers.host);
+  nuxtServerInit({ commit }, { req }) {
+    // commit('SET_DOMAIN', req.headers.host);
+    commit('SET_DOMAIN', 'plantree.me')
   }
 }

@@ -11,7 +11,7 @@ features:
 
 <p align="left"> <img src="https://visitor-badge.glitch.me/badge?page_id=plantree.me/about&left_text=Profile%20views" alt="profile views"> </p>
 
-- 🔭 我现在在 **微软** 工作， 从事 *浏览器引擎* 相关的研发
+- 🔭 我现在在 **微软** 工作， 从事*浏览器引擎*相关的研发
 - 🌱 我现在在学习 **计算机网络和Web开发**
 - 📝 我通常在 [https://plantree.me](https://plantree.me) 写博客
 - ⚡ 平时喜欢 **阅读, 电影和旅行**
