@@ -5,7 +5,7 @@
 <script>
 export default {
     mounted() {
-        axios.get('http://localhost:3000/geo.json').then(res => {
+        axios.get('https://plantree.me/geo.json').then(res => {
             const data = res.data.cities
             const geoCoordMap = res.data.coordMap
             console.log(this.data, this.geoCoordMap)

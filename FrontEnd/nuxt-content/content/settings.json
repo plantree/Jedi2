@@ -7,5 +7,5 @@
   },
   "github": "plantree/vercel/",
   "defaultBranch": "main",
-  "defaultDir": "content"
+  "defaultDir": "content/"
 }

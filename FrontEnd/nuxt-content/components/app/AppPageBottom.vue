@@ -1,5 +1,5 @@
 <template>
-  <div v-if="link" class="pt-4 pb-4 flex flex-col sm:flex-row justify-between">
+  <div v-if="link" class="pt-4 pb-4 flex flex-col gap-2 sm:flex-row justify-between">
     <a
       :href="link"
       target="_blank"
@@ -10,7 +10,7 @@
       <IconExternalLink class="w-4 h-4 ml-1" />
     </a>
     <span class="text-gray-600 dark:text-gray-400 text-sm font-medium flex items-center">
-      {{ $t("article.updatedAt") }} {{ $d(Date.parse(document.updatedAt), "long") }}
+      <span class="text-slate-400 font-semibold">{{ $t("article.updatedAt") }}</span> {{ new Date(document.updatedAt).toLocaleString() }}
     </span>
   </div>
 </template>
@@ -40,7 +40,7 @@ export default {
         'edit',
         this.settings.defaultBranch,
         this.settings.defaultDir,
-        `content${this.document.path}${this.document.extension}`
+        `${this.document.path}${this.document.extension}`
       ].filter(path => !!path).join('/')
     }
   }
