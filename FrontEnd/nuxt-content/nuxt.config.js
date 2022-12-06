@@ -131,7 +131,7 @@ const defaultConfig = docsOptions => ({
     '@/plugins/i18n.client',
     '@/plugins/vue-scrollactive',
     '@/plugins/menu.client',
-    // { src: "~/assets/script/echarts.js", mode: "client" }
+    { src: "~/plugins/vercel.js", mode: "client" }
   ],
   buildModules: [
     themeModule,
