@@ -2,41 +2,125 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-#### 00. Background
+#### 00. 背景
 
-Jedi2 is a personal blog framework developed by plantree.
+之前和朋友尝试协同开发过一个个人网站框架，也就是Jedi1.0，后因工作忙碌，不了了之。
 
-Jedi was a previous project started two years ago and now it is archived because of lazy.
+很多事情，在开始做的时候总是信心满满，激情四射，但时间一长，惰性上来，大部分都没有了下文。所谓：
 
-After two years' learning, it's time to start again. Redesign a website framework and replace the [old](https://plantree.me).
+> 行百里者半九十
 
-#### 01. Technology Stack
+诚不我欺。
 
-##### 1.1 Environment
+今年换了份工作，当时正值2022年上海疫情最严重的时候。
 
-- Azure & CentOS
+相比之前的995，现在的965就平衡很多。
+
+有时间，有精力，也有兴趣，把个人网站重新搭建一下。也是借着这次机会，把多年没有再碰的前端技术学习下。之前用的还是JQuery，几年下来早被扔进故纸堆，现在面临的，是丰富，杂乱而又十分精彩的前端世界。
+
+不过我想，Web技术的初始原则还是没有变的：
+
+> Web的无所不在是它的魅力。保证任何人都能无障碍地使用它，是一个最基本的原则。
+
+**我们在去拥抱各种新颖技术、框架的时候，不要忘记从具体的事情中思考出抽象的理念，同时不忘回归原则。**
+
+#### 01. 技术栈
+
+##### 1.1 开发环境
+
+- WSL2
 - VS Code
-- Git & Github
+- Git & GitHub & GitHub Action
 
-##### 1.2 BackEnd
+##### 1.2 后端
 
-- Golang
-- Gin
+- ~~Gin~~
+- Vercel
 
-##### 1.3 FrontEnd
+##### 1.3 前端
 
-- Vue + Vite + VueRouter
-- axios
+- Vue + Nuxt
 - Tailwind CSS
-- Giscus
-- Algolia
+- axios
+- giscus
 
-#### Reference
+#### 02. 开发过程
 
-1. [https://draveness.me/](https://draveness.me/)
-2. [vite + vue-router](https://stackblitz.com/edit/vue3-vite-router-starter?file=src%2FApp.vue,src%2Fmain.js)
-3. [vue + markdown](https://www.cnblogs.com/youxam/p/vue-markdown-render.html)
-4. [github css](https://github.com/sindresorhus/github-markdown-css)
-5. [markdown-it](https://github.com/markdown-it/markdown-it)
-6. [markdown-it-plugin](https://www.npmjs.com/search?q=keywords:markdown-it-plugin)
-7. [algolia/docsearch](https://github.com/algolia/docsearch)
+##### 2.1 主要参考
+
+主要参考的是[draveness](https://draveness.me/)和Hexo的[next](https://theme-next.js.org/)主题，复用的[nux-content](https://content.nuxtjs.org/)框架。
+
+几个设计原则：
+
+- 面向文档（document driven）。平时主要是通过Markdown写，因此需要一个框架，自动地将一系列Markdown文档转换为易于阅读和检索的网页内容。文档即内容，即一切，框架即形式。
+- 易于部署。框架和内容是分离的，内容需要按照框架指定的形式组织。内容被Git所管理，存储在GitHub中，通过持续集成工具实现文档更新后的自动部署。
+
+##### 2.2 重要节点
+
+###### 2.2.1 第一阶段（vuepress）
+
+最开始是打算用VuePress搭建。这是一个基于Vue的文档管理框架，只需要在json里配置文档路径即可。优点是现成的框架，开箱即用，基本不需要有开发的任务，缺点是定制化能力差，出来的更像是一个规规矩矩的文档，不是特别适合作为个人博客，因此选择放弃。
+
+###### 2.2.2 第二阶段（vite）
+
+在放弃了使用VuePress后，考虑一种从底层实现完整构建的路径。也确实用Vite搭建了基础环境，开始开发。虽说自由度比较高，但还是遇到两个主要问题：
+
+1. 因为文档都是静态的，前后端交互简单，因此没必要主动增加项目复杂性。后端用一个简单的静态文件服务器即可。这就需要工程具备SSG的能力，产出dist目录，直接部署。这一点在开发初始没有考虑到，Vite实现这一点相对繁琐
+2. 只有最初始的项目框架，从每个原子的component开始构建，工作量大，而且Vue也是刚刚学，不是很熟悉，完全不懂得什么Best Practice
+
+简单调研后，考虑采用另一个Vue框架，Nuxt。
+
+###### 2.2.3 第三阶段（nuxt）
+
+Nuxt有很多优点，我比较看重的是两点：
+
+1. 易于实现SSR和SSG
+2. 对于Markdown文档的天生支持，有一系列强大的接口
+
+最开始也是想从底至上开发来着（总是有图大图全图自由度的冲动！）。后来发现有现成的，类似VuePress的文档生成框架，nuxt-content，兼具自由度和展现能力，果断拿来使用。
+
+###### 2.2.4 第四阶段（nuxt-content）
+
+为了增加改造的自由度，直接把nuxt-content的源码拷贝到工程目录下。基于现有的一些能力，例如component、i18n等，进行定制化开发。
+
+经历之前几次不成熟的尝试后，进入到稳定开发阶段。
+
+部署本打算自己用Gin构建后端框架，后来发现了Vercel这个网站，基本实现了部署自动化，连HTTPS的证书申请都不需要自己搞定，真方便！
+
+###### 2.2.5 总结
+
+经历了这样一次开发过程之后，心态平和了很多，尽管期间经历过怀疑、懒惰、放弃，最后也是借助不断尝试和摸索，找到一条相对舒适，也相对可靠的路径。
+
+简单总结下，大致有三条：
+
+1. **明确目标**。只有目标明确，才有可能选择出一条最佳抵达途径，方向有问题，努力毫无价值。当然多数情况下，目标在最开始阶段是不明确的，需要试错和摸索，因此有了第二条总结。
+
+2. **敏捷开发**。比较适合初始状态模糊的项目，如果已经有了比较清晰的目标，完全可以实现良好的顶层设计。敏捷的优势在于，在微小的迭代中逐渐厘清目标和方向，进而确定。
+
+3. **善用轮子**。现在开源社区已经有了一系列成熟、完善、质量高的，称为库也好，轮子也好，解决方案也罢，总之我们要善加利用，站在巨人的肩膀上，在模仿中学习，在学习中超越。可能有人觉得无脑用别人的库没有成就感，都封装好了，不过我觉得，如果有现成的，我们不妨先使用，再掌握，最后按需深入。用胡适的话来说就是：
+
+   > 真理无穷怕什么，进一步有进一步的欢喜
+
+##### 2.3 稳定开发
+
+- [x] nuxt-content源码拷贝
+- [x] header样式调整
+- [x] 多语言支持（支持en和zh）
+- [x] 首页使用另一种layout，时间顺序展示所有博客
+- [x] navbar三层展示，category-->year-->articles
+- [x] 文章增加giscus评论和[浏览人数](https://github.com/jwenjian/visitor-badge)（借助现有基础设施）
+- [x] About内容丰富 
+- [x] 借助Echarts实现旅行足迹地图
+- [x] Sitemap + RSS
+- [x] 谷歌/百度统计
+- [x] 百度SEO优化
+  - 自动生成urls.txt
+  - GitHub Action实现定时推送
+- [x] Vercel自动化部署
+
+#### 03. 后续计划
+
+- 2022.12。目前基本实现最原始版本的个人网站，也在这个过程中学习到Vue，前端工程化的一些内容，理解还比较浅显，需要进一步学习，后面要做的事情主要有三个方面：
+  - 丰富文档，养成写博客的习惯
+  - bug-fix，因为是基于一个比较顶层的框架开发，内部还有很多模糊的、不理解的地方，仍有较大优化和改进空间
+  - 从顶层的框架入手，往下深入，了解Nuxt、前端工程化和Vue，甚至ES6，JavaScript的东西
