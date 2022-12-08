@@ -5,11 +5,10 @@
       <div class="container mx-auto flex-1 px-4 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <div class="lg:w-1/5 flex items-center pr-4" @click.stop="noop">
-            <NuxtLink :to="localePath('/')" class="flex-shrink-0 flex-1 font-bold text-xl"
+            <NuxtLink :to="localePath('/')" class="flex-shrink-0 flex-none font-bold text-xl"
               :aria-label="`${settings.title} Logo`">
               <span v-if="!logo">{{ settings.title }}</span>
               <img v-if="logo" :src="logo.light" class="h-10 max-w-full light-img rounded-full" :alt="settings.title" />
-              <img v-if="logo" :src="logo.dark" class="h-10 max-w-full dark-img rounded-full" :alt="settings.title" />
             </NuxtLink>
           </div>
           <div v-if="settings.layout !== 'single'" class="flex-1 flex justify-start w-4/6">

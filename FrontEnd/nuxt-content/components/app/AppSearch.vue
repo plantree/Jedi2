@@ -119,7 +119,6 @@ export default {
         return
       }
       const result = this.focusIndex === -1 ? this.results[0] : this.results[this.focusIndex]
-      console.log(('/blog' + this.localePath(result.to)))
       this.$router.push(( '/blog' + this.localePath(result.to)))
       // Unfocus the input and reset the query.
       this.$refs.search.blur()
