@@ -117,6 +117,7 @@ Nuxt有很多优点，我比较看重的是两点：
   - 自动生成urls.txt
   - GitHub Action实现定时推送
 - [x] Vercel自动化部署
+- [x] 静态图片保存在assets
 
 #### 03. 后续计划
 
