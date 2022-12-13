@@ -80,13 +80,13 @@ export const actions = {
     if (process.dev === false && state.categories[this.$i18n.locale]) {
       return
     }
-    const contents = await this.$content(this.$i18n.locale, { deep: true }).only(['title', 'menuTitle', 'category', 'slug', 'version', 'to', 'createdAt']).sortBy('createdAt', 'desc').fetch()
+    const contents = await this.$content(this.$i18n.locale, { deep: true }).only(['title', 'menuTitle', 'category', 'slug', 'version', 'to', 'date']).sortBy('date', 'desc').fetch()
     // filter 
     const docs = contents.filter((item) => (item.title.toLowerCase() !== 'about'))
     
     for (let item of docs) {
       item.to = '/blog' + item.to
-      item.year = (new Date(item.createdAt)).getFullYear()
+      item.year = item.date.split('-')[0]
     }
     const categories = groupBy(docs, 'category')
     for (let item of Object.keys(categories)) {
@@ -158,7 +158,7 @@ export const actions = {
   },
   async fetchSettings ({ commit }) {
     try {
-      const { dir, extension, path, slug, to, createdAt, updatedAt, ...settings } = await this.$content('settings').fetch()
+      const { dir, extension, path, slug, to, date, createdAt, updatedAt, ...settings } = await this.$content('settings').fetch()
 
       commit('SET_SETTINGS', settings)
     } catch (e) {

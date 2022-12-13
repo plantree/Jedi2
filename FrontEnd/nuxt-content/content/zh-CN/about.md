@@ -3,6 +3,7 @@ title: About
 description: ''
 position: 1
 category: 'Introduction'
+date: '2022-12-01'
 features:
   - about
 ---

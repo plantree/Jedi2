@@ -4,12 +4,28 @@
       :class="{ 'shadow border-transparent': scrolled }" @click="scrollToTop">
       <div class="container mx-auto flex-1 px-4 lg:px-8">
         <div class="flex items-center justify-between h-16">
-          <div class="lg:w-1/5 flex items-center pr-4" @click.stop="noop">
-            <NuxtLink :to="localePath('/')" class="flex-shrink-0 flex-none font-bold text-xl"
-              :aria-label="`${settings.title} Logo`">
-              <span v-if="!logo">{{ settings.title }}</span>
-              <img v-if="logo" :src="logo.light" class="h-10 max-w-full light-img rounded-full" :alt="settings.title" />
-            </NuxtLink>
+          <div class="lg:w-1/5 flex items-center" @click.stop="noop">
+            <ul class="flex flex-row font-bold gap-4">
+              <li>
+                <NuxtLink :to="localePath('/')" class="flex-shrink-0 flex-none text-xl"
+                  :aria-label="`${settings.title} Logo`">
+                  <span v-if="!logo">{{ settings.title }}</span>
+                  <img v-if="logo" :src="logo.light" class="h-10 max-w-full light-img rounded-full"
+                    :alt="settings.title" />
+                </NuxtLink>
+              </li>
+              <li class="my-auto">
+                <NuxtLink class="inline-flex items-center rounded-lg hover:text-primary-500" :to="localePath('/')">
+                  Home
+                </NuxtLink>
+              </li>
+              <li class="my-auto">
+                <NuxtLink class="inline-flex items-center rounded-lg hover:text-primary-500" :to="localePath('/project')">
+                  Project
+                </NuxtLink>
+              </li>
+            </ul>
+
           </div>
           <div v-if="settings.layout !== 'single'" class="flex-1 flex justify-start w-4/6">
             <AppSearchAlgolia v-if="settings.algolia" :options="settings.algolia" :settings="settings" />
@@ -18,15 +34,15 @@
           <div class="lg:w-1/5 flex items-center pl-4 lg:pl-8"
             :class="{ 'justify-between': lastRelease && settings.layout !== 'single', 'justify-end': !lastRelease || settings.layout === 'single' }">
             <div class="flex items-center">
-              <AppLangSwitcher class="px-3" :class="{
-                  'hidden lg:block': settings.layout !== 'single'
+            <AppLangSwitcher class="px-3" :class="{
+                'hidden lg:block': settings.layout !== 'single'
               }" />
               <AppColorSwitcher :class="{
-                  'hidden lg:block': settings.layout !== 'single'
+                'hidden lg:block': settings.layout !== 'single'
               }" />
               <NuxtLink class="font-bold inline-flex items-center px-3 -mt-1 rounded-lg hover:text-primary-500" :class="{
-                  'hidden lg:inline-flex': settings.layout !== 'single'
-              }"  :to="localePath('/about')">
+                'hidden lg:inline-flex': settings.layout !== 'single'
+              }" :to="localePath('/about')">
                 About
                 <IconExternalLink class="w-4 h-4 ml-1" />
               </NuxtLink>

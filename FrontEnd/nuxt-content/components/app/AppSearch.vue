@@ -48,8 +48,8 @@
         >
           <span v-if="result.category" class="font-bold">{{ result.category }}</span>
           <IconChevronRight v-if="result.category" class="w-3 h-3 mx-1" />
-          <span v-if="result.createdAt" class="font-bold">{{ new Date(result.createdAt).getFullYear() }}</span>
-          <IconChevronRight v-if="result.createdAt" class="w-3 h-3 mx-1" />
+          <span v-if="result.date" class="font-bold">{{ result.date.split('-')[0] }}</span>
+          <IconChevronRight v-if="result.date" class="w-3 h-3 mx-1" />
           {{ result.title }}
         </NuxtLink>
       </li>
@@ -79,7 +79,7 @@ export default {
       }
       
       this.searching = true
-      this.results = await this.$content(this.$i18n.locale, { deep: true }).sortBy('position', 'asc').only(['title', 'slug', 'category', 'to', 'toc', 'features', 'createdAt'])
+      this.results = await this.$content(this.$i18n.locale, { deep: true }).sortBy('position', 'asc').only(['title', 'slug', 'category', 'to', 'toc', 'features', 'date'])
         .where({ title: { $ne: 'About'}}).limit(12).search(q).fetch()
       this.searching = false
     }

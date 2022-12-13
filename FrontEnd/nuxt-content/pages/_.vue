@@ -29,8 +29,8 @@ export default {
     const articles = await $content(app.i18n.locale, { deep: true })
       .where({ extension: '.md' })
       .where({ title: { $ne: 'About' } })
-      .only(['title', 'to', 'createdAt'])
-      .sortBy('createdAt', 'desc')
+      .only(['title', 'to', 'date'])
+      .sortBy('date', 'desc')
       .fetch()
       .catch((err) => {
         error({ statusCode: 404, message: 'Page not found' })
@@ -38,11 +38,7 @@ export default {
     // class by year
     let contents = {}
     for (let item of articles) {
-      let date = new Date(item.createdAt)
-      item.year = date.getFullYear()
-      item.date = item.year + '-' +
-        ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
-        ('0' + (date.getDate())).slice(-2)
+      item.year = item.date.split('-')[0]
       item.to = '/blog' + item.to
       if (item.title === 'About' || item.title === 'Introduction') {
         item.year = 2021

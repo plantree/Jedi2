@@ -37,11 +37,6 @@
               <a href="http://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 国际许可协议</a>
             进行许可，转载时请注明原文链接</li>
           </ul>
-          <!-- <h2 class="text-xl font-semibold">转载申请</h2>
-          <a href="https://creativecommons.org/licenses/by/4.0/">
-            <img src="https://img.draveness.me/creative-commons.png">
-          </a>
-          <p>本作品采用知识共享署名 4.0 国际许可协议进行许可，转载时请注明原文链接，图片在使用时请保留全部内容，可适当缩放并在引用处附上图片所在的文章链接。</p> -->
         </article>
 
         <article class="comment my-4">
@@ -51,7 +46,7 @@
         </article>
 
         <AppPageBottom :document="document" />
-        <AppPrevNext :prev="prev" :next="next" />
+        <AppPrevNext :prev="next" :next="prev" />
       </article>
     </div>
 
@@ -79,11 +74,7 @@ export default {
     const path = `/${app.i18n.locale}/${params.pathMatch || 'index'}`
     const [document] = await $content({ deep: true }).where({ path }).fetch()
     if (document !== undefined) {
-      let date = new Date(document.createdAt)
-      document.year = date.getFullYear()
-      document.date = document.year + '-' +         
-        ('0' + (date.getMonth() + 1)).slice(-2) + '-' + 
-        ('0' + (date.getDate())).slice(-2)
+      document.year = document.date.split('-')[0]
     }
 
     if (!document) {
