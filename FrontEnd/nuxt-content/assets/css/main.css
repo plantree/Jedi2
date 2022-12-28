@@ -14,9 +14,19 @@
   display: block;
 }
 
-main > div {
-  min-height: 78vh;
+#__nuxt > div > div {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
 }
+
+main { 
+  flex: 1
+}
+
+/* main > div {
+  min-height: 78vh;
+} */
 
 .nuxt-content {
   @apply break-words;

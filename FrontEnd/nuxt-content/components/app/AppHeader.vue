@@ -10,7 +10,7 @@
                 <NuxtLink :to="localePath('/')" class="flex-shrink-0 flex-none text-xl"
                   :aria-label="`${settings.title} Logo`">
                   <span v-if="!logo">{{ settings.title }}</span>
-                  <img v-if="logo" :src="logo.light" class="h-10 max-w-full light-img rounded-full"
+                  <img v-if="logo" :src="logo.light" class="h-10 max-w-full rounded-full"
                     :alt="settings.title" />
                 </NuxtLink>
               </li>
