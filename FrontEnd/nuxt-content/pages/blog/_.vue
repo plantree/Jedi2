@@ -30,7 +30,7 @@
         <NuxtContent :document="document" />
 
         <article class="license mt-6">
-          <ul class="px-4 py-2 border-l-4">
+          <ul class="px-4 py-2 border-l-4 dark:bg-black">
             <li><strong>本文作者: </strong>Plantree</li>
             <li><strong>本文链接: </strong><a :href="`https://${domain}${this.$route.path}`">https://{{domain}}{{this.$route.path}}</a></li>
             <li><strong>版权声明: </strong>本作品采用
