@@ -25,20 +25,11 @@ features:
 
 <h3 align="left">编程语言和工具:</h3>
 <p align="left" class="flex gap-4">
-<a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img
-      src="/social-img/linux-original.svg" alt="linux"
-      width="40" height="40" /></a>
-  <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img
-      src="/social-img/cplusplus-original.svg"
-      alt="cplusplus" width="40" height="40" /> </a> <a href="https://golang.org" target="_blank" rel="noreferrer"> <img
-      src="/social-img/go-original.svg" alt="go" width="40"
-      height="40" /> </a>
-  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img
-      src="/social-img/javascript-original.svg"
-      alt="javascript" width="40" height="40" /> </a>
-  <a href="https://www.python.org" target="_blank" rel="noreferrer">
-    <img src="/social-img/python-original.svg" alt="python"
-      width="40" height="40" /> </a>
+<img src="/social-img/linux-original.svg" alt="linux" width="40" height="40" />
+<img src="/social-img/cplusplus-original.svg" alt="cplusplus" width="40" height="40" />
+<img src="/social-img/go-original.svg" alt="go" width="40" height="40" />
+<img src="/social-img/javascript-original.svg" alt="javascript" width="40" height="40" />
+<img src="/social-img/python-original.svg" alt="python" width="40" height="40" />
 </p>
 
 <h3 align="left">GitHub统计:</h3>

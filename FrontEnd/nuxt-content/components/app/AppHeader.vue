@@ -20,9 +20,10 @@
                 </NuxtLink>
               </li>
               <li class="my-auto">
-                <NuxtLink class="inline-flex items-center rounded-lg hover:text-primary-500" :to="localePath('/project')">
+                <a class="inline-flex items-center rounded-lg hover:text-primary-500" 
+                  href="https://plantree.github.io/project-docs/" target="_blank">
                   Project
-                </NuxtLink>
+                </a>
               </li>
             </ul>
 

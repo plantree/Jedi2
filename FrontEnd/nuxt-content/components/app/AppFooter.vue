@@ -35,8 +35,8 @@
               </NuxtLink>
         </li>
       </ul>
-      <p class="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500 dark:text-white">Copyright &copy; {{ new Date().getFullYear() }}
-          Plantree | <a href="https://beian.miit.gov.cn" rel="noopener external nofollow noreferrer" target="_blank" title="beian">苏ICP备16065564号-2</a>
+      <p class="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500 dark:text-white">Copyright &copy; 2022-{{ new Date().getFullYear() }}
+          Plantree 
       </p>
   </div>
   </footer>
