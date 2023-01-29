@@ -101,12 +101,6 @@ const defaultConfig = docsOptions => ({
         src: "https://cdn.skypack.dev/giscus",
         async: true
       },
-      // busuanzi counter
-      {
-        src: "https://cdnjs.cloudflare.com/ajax/libs/busuanzi/2.3.0/bsz.pure.mini.min.js",
-        async: true,
-        crossorigin: "anonymous"
-      }
     ],
     meta: [
       { charset: 'utf-8' },

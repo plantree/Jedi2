@@ -22,7 +22,7 @@
             </li>
           </ul>
           <span>
-            <img class="inline-block align-middle" :src="`https://visitor-badge.glitch.me/badge?page_id=${domain}${this.$route.path}&left_text=views`"
+            <img class="inline-block align-middle" :src="`https://api.visitor.plantree.me/visitor-badge/pv?namespace=${domain}&key=${this.$route.path}`"
              alt="visitor badge"/>
           </span>
         </div>

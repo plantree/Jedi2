@@ -27,5 +27,5 @@ async function create(feed, args) {
   return feed;
 }
 
-export default create
+export default create;
 
