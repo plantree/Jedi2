@@ -22,12 +22,12 @@
         <ul class="py-2" v-show="isActive">
             <li v-if="isObject(contents)">
                 <ul>
-                    <li v-for="(docs, year, index) in contents" :key="year"
+                    <li v-for="year in Object.keys(contents).sort((a, b) => b - a)" :key="year"
                         class="ml-2 pl-4 border-l u-border-gray-100 hover:u-border-gray-300" :class="{
-                            'active': isCategoryActive(docs),
+                            'active': isCategoryActive(contents[year]),
                             'lg:mb-0': index === Object.keys(contents).length - 1
                         }">
-                        <AppNavList :title="year" :contents="docs" :isActive="isActive" />
+                        <AppNavList :title="year" :contents="contents[year]" :isActive="isActive" />
                     </li>
                 </ul>
             </li>
