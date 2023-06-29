@@ -13,12 +13,6 @@
               </a>
           </li>
           <li>
-              <a href="https://www.linkedin.com/in/plantree/" rel="noopener noreferrer" target="_blank"
-                  class="text-gray-700 transition hover:text-gray-400/75 dark:text-white dark:hover:text-white/75">
-                  <IconLinkedIn />
-              </a>
-          </li>
-          <li>
               <a href="https://www.zhihu.com/people/plantree.me" rel="noopener noreferrer" target="_blank"
                   class="text-gray-700 transition hover:text-gray-400/75 dark:text-white dark:hover:text-white/75">
                   <IconZhihu />
